@@ -61,6 +61,12 @@
 (defvar rails-i18n-ask-before-create-language t
   "")
 
+(defvar rails-i18n-before-hook '()
+  "")
+
+(defvar rails-i18n-after-hook '()
+  "")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun rails-i18n-insert-tag()
