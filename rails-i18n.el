@@ -101,7 +101,7 @@ will be affected.")
   )
 
 (defun rails-i18n-set-default-locale ()
-  "Interactively sets a new default locale."
+  "Interactively selects a locale to the default."
   )
 
 ;;;###autoload
