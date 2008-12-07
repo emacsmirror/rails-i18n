@@ -84,20 +84,24 @@ will be affected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun rails-i18n-insert-tag()
+(defun rails-i18n-insert-tag ()
   "Inserts a tag."
   )
 
-(defun rails-i18n-edit-tag()
+(defun rails-i18n-edit-tag ()
   "Edits a tag."
   )
 
-(defun rails-i18n-remove-tag()
+(defun rails-i18n-remove-tag ()
   "Removes a tag."
   )
 
-(defun rails-i18n-show-tag()
+(defun rails-i18n-show-tag ()
   "Prints a tag."
+  )
+
+(defun rails-i18n-set-default-locale ()
+  "Interactively sets a new default locale."
   )
 
 ;;;###autoload
