@@ -62,9 +62,9 @@
   "Keymap for `rails-i18n-mode'.")
 
 (defvar rails-i18n-try-find-default-locale t
-  "If this is set to t the default locale is set to I18n.default_locale
-from config/environment.rb.. If that is not found the locale is
-randomly selected from the filenames found in config/locales.
+  "If set to t the default locale is set to I18n.default_locale
+from config/environment.rb. If that is not found, the locale is
+randomly selected from the files found in config/locales.
 If set to nil, `rails-i18n-default-locale' must be set manually.")
 
 (defvar rails-i18n-default-locale nil
@@ -78,9 +78,8 @@ If set to nil, `rails-i18n-default-locale' must be set manually.")
   "If set to t, confirmation is needed to remove tag.")
 
 (defvar rails-i18n-multiple-locales t
-  "If set to t, when updating a locale tag all locales will available
-to be updated at the same time (if more than one locale). Otherwise
-the default locale is selected.")
+  "If set to t, when making changes to a tag all locales
+will be affected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -89,7 +88,7 @@ the default locale is selected.")
   )
 
 (defun rails-i18n-edit-tag()
-  "Edits an already existing tag."
+  "Edits a tag."
   )
 
 (defun rails-i18n-remove-tag()
