@@ -70,7 +70,6 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
 
 (defvar rails-i18n-default-locale nil
   "Default locale.")
-(make-variable-buffer-local 'rails-i18n-default-locale)
 
 (defvar rails-i18n-ask-before-insert-tag nil
   "If set to t, confirmation is needed to insert new tag.")
