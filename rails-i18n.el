@@ -77,9 +77,6 @@ If set to nil, `rails-i18n-default-locale' must be set manually.")
 (defvar rails-i18n-ask-before-remove-tag t
   "If set to t, confirmation is needed to remove tag.")
 
-(defvar rails-i18n-ask-before-create-locale t
-  "If set to t, confirmation is needed to create new locale file.")
-
 (defvar rails-i18n-multiple-locales t
   "If set to t, when updating a locale tag all locales will available
 to be updated at the same time (if more than one locale). Otherwise
@@ -101,14 +98,6 @@ the default locale is selected.")
 
 (defun rails-i18n-show-tag()
   "Prints a tag."
-  )
-
-(defun rails-i18n-create-locale()
-  "Create new locale from other locale."
-  )
-
-(defun rails-i18n-sync-with-locale()
-  "Synchronizes a locale with another."
   )
 
 ;;;###autoload
