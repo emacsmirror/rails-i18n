@@ -111,10 +111,13 @@
 
 ;;;###autoload
 (define-minor-mode rails-i18n
-  ""
+  "Handle Rails i18n tags."
   :init-value nil
   :lighter " rails-i18n"
-  :keymap '())
+  :keymap rails-i18n-mode-map
+  (if rails-i18n
+      
+      ))
 ;;;###autoload
 
 (provide 'rails-i18n)
