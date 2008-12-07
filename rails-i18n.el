@@ -56,57 +56,59 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; Variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defconst rails-i18n-version ""
-  "")
+  "Rails i18n version.")
 
 (defvar rails-i18n-mode-map (make-sparse-keymap)
-  "")
+  "Keymap for `rails-i18n-mode'.")
 
-(defvar rails-i18n-default-language "en"
-  "")
+(defvar rails-i18n-try-find-default-locale t
+  "If this is set to t the default locale is set to I18n.default_locale
+from config/environment.rb.. If that is not found the locale is
+randomly selected from the filenames found in config/locales.
+If set to nil, `rails-i18n-default-locale' must be set manually.")
+
+(defvar rails-i18n-default-locale nil
+  "Default locale.")
+(make-variable-buffer-local 'rails-i18n-default-locale)
 
 (defvar rails-i18n-ask-before-insert-tag nil
-  "")
+  "If set to t, confirmation is needed to insert new tag.")
 
 (defvar rails-i18n-ask-before-remove-tag t
-  "")
+  "If set to t, confirmation is needed to remove tag.")
 
-(defvar rails-i18n-ask-before-create-language t
-  "")
+(defvar rails-i18n-ask-before-create-locale t
+  "If set to t, confirmation is needed to create new locale file.")
 
-(defvar rails-i18n-before-hook '()
-  "")
-
-(defvar rails-i18n-after-hook '()
-  "")
+(defvar rails-i18n-multiple-locales t
+  "If set to t, when updating a locale tag all locales will available
+to be updated at the same time (if more than one locale). Otherwise
+the default locale is selected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun rails-i18n-insert-tag()
-  ""
+  "Inserts a tag."
   )
 
 (defun rails-i18n-edit-tag()
-  ""
+  "Edits an already existing tag."
   )
 
-(defun rails-i18n-delete-tag()
-  ""
+(defun rails-i18n-remove-tag()
+  "Removes a tag."
   )
 
 (defun rails-i18n-show-tag()
-  ""
+  "Prints a tag."
   )
 
-(defun rails-i18n-create-language()
-  ""
+(defun rails-i18n-create-locale()
+  "Create new locale from other locale."
   )
 
-(defun rails-i18n-sync-with-language()
-  ""
-  )
-
-(defun rails-i18n-set-default-language()
-  ""
+(defun rails-i18n-sync-with-locale()
+  "Synchronizes a locale with another."
   )
 
 ;;;###autoload
