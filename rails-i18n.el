@@ -83,12 +83,8 @@ will be affected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun rails-i18n-insert-tag ()
-  "Inserts a tag."
-  )
-
 (defun rails-i18n-edit-tag ()
-  "Edits a tag."
+  "Inserts a tag, or edits it if it exists."
   )
 
 (defun rails-i18n-remove-tag ()
