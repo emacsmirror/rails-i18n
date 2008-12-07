@@ -65,7 +65,8 @@
   "If set to t the default locale is set to I18n.default_locale
 from config/environment.rb. If that is not found, the locale is
 randomly selected from the files found in config/locales.
-If set to nil, `rails-i18n-default-locale' must be set manually.")
+If set to nil, `rails-i18n-default-locale' must be set manually via
+`setq' or `rails-i18n-set-default-locale'.")
 
 (defvar rails-i18n-default-locale nil
   "Default locale.")
