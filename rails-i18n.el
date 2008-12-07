@@ -100,12 +100,12 @@ will be affected.")
   )
 
 ;;;###autoload
-(define-minor-mode rails-i18n
+(define-minor-mode rails-i18n-mode
   "Handle Rails i18n tags."
   :init-value nil
   :lighter " rails-i18n"
   :keymap rails-i18n-mode-map
-  (if rails-i18n
+  (if rails-i18n-mode
       
       ))
 ;;;###autoload
