@@ -89,21 +89,24 @@ will be affected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 (defun rails-i18n-insert-tag ()
-  "Inserts a tag to locale file(s)."
-  )
-
-(defun rails-i18n-edit-tag ()
-  "Inserts a tag value, or edits it if it exists."
+  "Inserts a tag."
   )
 
 (defun rails-i18n-remove-tag ()
-  "Removes a tag value."
+  "Removes a tag."
   )
 
-(defun rails-i18n-show-tag ()
+(defun rails-i18n-edit-tag-value ()
+  "Inserts a tag value, or edits it if it exists."
+  )
+
+(defun rails-i18n-print-tag-value ()
   "Prints tag value."
+  )
+
+(defun rails-i18n-remove-tag-value ()
+  "Removes a tag value."
   )
 
 (defun rails-i18n-set-default-locale ()
