@@ -81,6 +81,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun rails-i18n-rails-root ()
+  "Finds Rails root."
+  )
+
 (defun rails-i18n-find-tag ()
   "Finds tag in locale."
   )
