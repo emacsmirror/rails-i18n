@@ -71,11 +71,17 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
 (defvar rails-i18n-default-locale nil
   "Default locale.")
 
-(defvar rails-i18n-ask-before-update-tag nil
+(defvar rails-i18n-ask-before-insert-tag nil
   "If set to t, confirmation is needed to insert new tag.")
 
 (defvar rails-i18n-ask-before-remove-tag t
   "If set to t, confirmation is needed to remove tag.")
+
+(defvar rails-i18n-ask-before-update-tag-value nil
+  "If set to t, confirmation is needed to insert or update tag value.")
+
+(defvar rails-i18n-ask-before-remove-tag-value t
+  "If set to t, confirmation is needed to remove tag value.")
 
 (defvar rails-i18n-multiple-locales t
   "If set to t, when making changes to a tag all locales
