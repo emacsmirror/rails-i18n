@@ -83,10 +83,6 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
 (defvar rails-i18n-ask-before-remove-tag-value t
   "If set to t, confirmation is needed to remove tag value.")
 
-(defvar rails-i18n-multiple-locales t
-  "If set to t, when making changes to a tag all locales
-will be affected.")
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun rails-i18n-insert-tag ()
