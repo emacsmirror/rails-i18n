@@ -85,6 +85,10 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun rails-i18n-find-tag ()
+  "Finds tag in locale."
+  )
+
 (defun rails-i18n-insert-tag ()
   "Inserts a tag."
   )
