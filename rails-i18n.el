@@ -62,11 +62,7 @@
   "Keymap for `rails-i18n-mode'.")
 
 (defvar rails-i18n-try-find-default-locale t
-  "If set to t the default locale is set to I18n.default_locale
-from config/environment.rb. If that is not found, the locale is
-randomly selected from the files found in config/locales.
-If set to nil, `rails-i18n-default-locale' must be set manually via
-`setq' or `rails-i18n-set-default-locale'.")
+  "Try to find out what the default locale is if this is true.")
 
 (defvar rails-i18n-default-locale nil
   "Default locale.")
@@ -110,7 +106,11 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
   )
 
 (defun rails-i18n-set-default-locale ()
-  "Interactively selects a locale to the default."
+  "If `rails-i18n-try-find-default-locale' is set to t,
+the default locale is set to I18n.default_locale
+from config/environment.rb. If that is not found, the locale is
+interactively selected from the files found in config/locales.
+If set to nil, `rails-i18n-default-locale' must be set manually via `setq'."
   )
 
 ;;;###autoload
@@ -120,7 +120,7 @@ If set to nil, `rails-i18n-default-locale' must be set manually via
   :lighter " rails-i18n"
   :keymap rails-i18n-mode-map
   (if rails-i18n-mode
-      
+
       ))
 ;;;###autoload
 
