@@ -81,9 +81,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun rails-i18n-rails-root ()
-  "Finds Rails root."
-  )
+(defun rails-i18n-project-root (&optional dir)
+  "Returns Rails root or nil if not found."
+  (or dir (setq dir default-directory))
+  (if (file-exists-p (concat dir "config/environment.rb"))
+      dir
+    (unless (equal dir "/")
+      (rails-root (expand-file-name (concat dir "../"))))))
 
 (defun rails-i18n-find-tag ()
   "Finds tag in locale."
