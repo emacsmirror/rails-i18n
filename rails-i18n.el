@@ -83,16 +83,21 @@ will be affected.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+(defun rails-i18n-insert-tag ()
+  "Inserts a tag to locale file(s)."
+  )
+
 (defun rails-i18n-edit-tag ()
-  "Inserts a tag, or edits it if it exists."
+  "Inserts a tag value, or edits it if it exists."
   )
 
 (defun rails-i18n-remove-tag ()
-  "Removes a tag."
+  "Removes a tag value."
   )
 
 (defun rails-i18n-show-tag ()
-  "Prints a tag."
+  "Prints tag value."
   )
 
 (defun rails-i18n-set-default-locale ()
