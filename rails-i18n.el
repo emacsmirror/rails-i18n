@@ -89,7 +89,7 @@ If set to nil, this variable must be set manually via `setq'.")
   (if (file-exists-p (concat dir "config/environment.rb"))
       dir
     (unless (equal dir "/")
-      (rails-root (expand-file-name (concat dir "../"))))))
+      (rails-i18n-project-root (expand-file-name (concat dir "../"))))))
 
 (defun rails-i18n-find-tag ()
   "Finds tag in locale."
