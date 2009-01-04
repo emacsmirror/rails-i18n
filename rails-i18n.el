@@ -71,6 +71,9 @@ If set to nil, this variable must be set manually via `setq'.")
 (defvar rails-i18n-default-locale nil
   "Default locale.")
 
+(defvar rails-i18n-locales-path nil
+  "Path to locale files.")
+
 (defvar rails-i18n-ask-before-insert-tag nil
   "If set to t, confirmation is needed to insert new tag.")
 
@@ -130,12 +133,14 @@ If set to nil, this variable must be set manually via `setq'.")
   :init-value nil
   :lighter " rails-i18n"
   :keymap rails-i18n-mode-map
-  (if rails-i18n-mode
-      (cond (rails-i18n-try-find-default-locale
-             (find-file-read-only (concat (rails-i18n-project-root) "config/environment.rb"))
-             (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
-                 (setq rails-i18n-default-locale (match-string-no-properties 1)))
-             (kill-this-buffer)))))
+  (cond (rails-i18n-mode
+      (unless rails-i18n-locales-path
+        (setq rails-i18n-locales-path (concat (rails-i18n-project-root) "config/locales")))
+    (cond (rails-i18n-try-find-default-locale
+           (find-file-literally (concat (rails-i18n-project-root) "config/environment.rb"))
+           (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
+               (setq rails-i18n-default-locale (match-string-no-properties 1)))
+           (kill-this-buffer))))))
 
 (provide 'rails-i18n)
 
