@@ -97,7 +97,27 @@ If set to nil, this variable must be set manually via `setq'.")
       (rails-i18n-project-root (expand-file-name (concat dir "../"))))))
 
 (defun rails-i18n-find-tag ()
-  "Finds tag in locale."
+
+  )
+
+(defun rails-i18n-narrow-to-tag-area ()
+
+  )
+
+(defun rails-i18n-locale-yaml-p ()
+
+  )
+
+(defun rails-i18n-locale-ruby-p ()
+
+  )
+
+(defun rails-i18n-locale-indent-size ()
+
+  )
+
+(defun rails-i18n-find-locale-file ()
+
   )
 
 (defun rails-i18n-insert-tag ()
