@@ -119,16 +119,17 @@ If set to nil, this variable must be set manually via `setq'.")
   "Interactively sets default locale from files found in config/locales."
   )
 
-;;;###autoload
 (define-minor-mode rails-i18n-mode
   "Handle Rails i18n tags."
   :init-value nil
   :lighter " rails-i18n"
   :keymap rails-i18n-mode-map
   (if rails-i18n-mode
-      
-      ))
-;;;###autoload
+      (cond (rails-i18n-try-find-default-locale
+             (find-file-read-only (concat (rails-i18n-project-root) "config/environment.rb"))
+             (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
+                 (setq rails-i18n-default-locale (match-string-no-properties 1)))
+             (kill-this-buffer)))))
 
 (provide 'rails-i18n)
 
