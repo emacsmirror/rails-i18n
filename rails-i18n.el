@@ -55,6 +55,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; Variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'ido)
+
 (defconst rails-i18n-version ""
   "Rails i18n version.")
 
@@ -117,7 +119,11 @@ If set to nil, this variable must be set manually via `setq'.")
 
 (defun rails-i18n-set-default-locale ()
   "Interactively sets default locale from files found in config/locales."
-  )
+  (interactive)
+  (setq rails-i18n-default-locale
+        (file-name-sans-extension
+         (file-name-nondirectory
+          (ido-read-file-name "Locale:" (concat (rails-i18n-project-root) "config/locales"))))))
 
 (define-minor-mode rails-i18n-mode
   "Handle Rails i18n tags."
