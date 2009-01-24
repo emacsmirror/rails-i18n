@@ -105,12 +105,16 @@ If set to nil, this variable must be set manually via `setq'.")
   )
 
 (defun rails-i18n-locale-yaml-p ()
-
-  )
+  "Returns true if default locale file is a yaml file. False otherwise."
+  (rails-i18n-locale-p ".yml"))
 
 (defun rails-i18n-locale-ruby-p ()
+  "Returns true if default locale file is a ruby file. False otherwise."
+  (rails-i18n-locale-p ".rb"))
 
-  )
+(defun rails-i18n-locale-p (extension)
+  "Generic function to check default locale file type."
+  (file-exists-p (concat rails-i18n-locales-path rails-i18n-default-locale extension)))
 
 (defun rails-i18n-locale-indent-size ()
 
