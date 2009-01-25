@@ -71,6 +71,9 @@ If set to nil, this variable must be set manually via `setq'.")
 (defvar rails-i18n-default-indent-size 2
   "Default value for number of spaces in locale file.")
 
+(defvar rails-i18n-indent-size nil
+  "Current indent size.")
+
 (defvar rails-i18n-default-locale nil
   "Default locale.")
 
@@ -192,10 +195,12 @@ Return value is what is returned from FUNCTION."
          (unless rails-i18n-locales-path
            (setq rails-i18n-locales-path (concat (rails-i18n-project-root) "config/locales/")))
          (if rails-i18n-try-find-default-locale
-             (rails-i18n-temp-buffer-do (concat (rails-i18n-project-root) "config/environment.rb")
-                                        (lambda ()
-                                          (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
-                                              (setq rails-i18n-default-locale (match-string-no-properties 1)))))))))
+             (rails-i18n-temp-buffer-do
+              (concat (rails-i18n-project-root) "config/environment.rb")
+              (lambda ()
+                (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
+                    (setq rails-i18n-default-locale (match-string-no-properties 1))))))
+         (setq rails-i18n-indent-size (rails-i18n-locale-indent-size)))))
 
 
 (provide 'rails-i18n)
