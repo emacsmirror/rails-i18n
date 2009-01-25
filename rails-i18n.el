@@ -147,10 +147,6 @@ Return value is what is returned from FUNCTION."
       (kill-this-buffer)
       result)))
 
-(defun rails-i18n-find-locale-file ()
-
-  )
-
 (defun rails-i18n-insert-tag ()
   "Inserts a tag."
   )
