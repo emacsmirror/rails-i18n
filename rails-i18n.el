@@ -104,6 +104,11 @@ If set to nil, this variable must be set manually via `setq'.")
 
   )
 
+(defun rails-i18n-locale-file ()
+  "Returns absolute path to locale file."
+  (concat rails-i18n-locales-path rails-i18n-default-locale
+          (if (rails-i18n-locale-yaml-p) ".yml" ".rb")))
+
 (defun rails-i18n-locale-yaml-p ()
   "Returns true if default locale file is a yaml file. False otherwise."
   (rails-i18n-locale-p ".yml"))
