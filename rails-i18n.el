@@ -183,11 +183,11 @@ Return value is what is returned from FUNCTION."
   (cond (rails-i18n-mode
          (unless rails-i18n-locales-path
            (setq rails-i18n-locales-path (concat (rails-i18n-project-root) "config/locales/")))
-         (if (rails-i18n-try-find-default-locale
+         (if rails-i18n-try-find-default-locale
               (rails-i18n-temp-buffer-do (concat (rails-i18n-project-root) "config/environment.rb")
                                          (lambda ()
                                            (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
-                                               (setq rails-i18n-default-locale (match-string-no-properties 1))))))))))
+                                               (setq rails-i18n-default-locale (match-string-no-properties 1)))))))))
 
 
 (provide 'rails-i18n)
