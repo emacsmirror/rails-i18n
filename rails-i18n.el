@@ -68,6 +68,9 @@
 I18n.default_locale from config/environment.rb if it is found.
 If set to nil, this variable must be set manually via `setq'.")
 
+(defvar rails-i18n-default-indent-size 2
+  "Default value for number of spaces in locale file.")
+
 (defvar rails-i18n-default-locale nil
   "Default locale.")
 
