@@ -125,21 +125,21 @@ If set to nil, this variable must be set manually via `setq'.")
   (file-exists-p (concat rails-i18n-locales-path rails-i18n-default-locale extension)))
 
 (defun rails-i18n-locale-indent-size ()
-  "Will try to figure out the indent size of the default locale file if
-it's a yaml file."
-  (if (rails-i18n-locale-yaml-p)
-      (let ((file (concat rails-i18n-locales-path rails-i18n-default-locale ".yml")))
-        (if (file-exists-p file)
-            (rails-i18n-temp-buffer-do file
-                                       (lambda ()
-                                         (re-search-forward rails-i18n-default-locale nil t)
-                                         (let ((next-line-add-newlines t))
-                                           (next-line))
-                                         (back-to-indentation)
-                                         (let ((count (- (point) (progn (beginning-of-line) (point)))))
-                                           (if (> count 0)
-                                               count
-                                             2))))))))
+  "Returns the indent size of default locale file or
+`rails-i18n-default-indent-size' if not found."
+  (rails-i18n-temp-buffer-do
+   (rails-i18n-locale-file)
+   (lambda ()
+     (let ((goto (if (rails-i18n-locale-yaml-p) rails-i18n-default-locale "{"))
+           (next-line-add-newlines t)
+           (indent-size))
+       (re-search-forward goto nil t)
+       (next-line)
+       (back-to-indentation)
+       (setq indent-size (- (point) (line-beginning-position)))
+       (if (> indent-size 0)
+           indent-size
+         rails-i18n-default-indent-size)))))
 
 (defun rails-i18n-temp-buffer-do (file function)
   "Opens a temporary buffer, clears it, inserts contents of FILE,
