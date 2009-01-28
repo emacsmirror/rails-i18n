@@ -93,7 +93,8 @@ If set to nil, this variable must be set manually via `setq'.")
   "If set to t, confirmation is needed to remove tag.")
 
 (defvar rails-i18n-ask-before-update-tag-value nil
-  "If set to t, confirmation is needed to insert or update tag value.")
+  "If set to t, confirmation is needed to insert or update tag
+  value.")
 
 (defvar rails-i18n-ask-before-remove-tag-value t
   "If set to t, confirmation is needed to remove tag value.")
@@ -152,8 +153,8 @@ If set to nil, this variable must be set manually via `setq'.")
 
 (defun rails-i18n-temp-buffer-do (file function)
   "Opens a temporary buffer, clears it, inserts contents of FILE,
-goes to beginning of buffer, run given function and then kills buffer.
-Return value is what is returned from FUNCTION."
+goes to beginning of buffer, run given function and then kills
+buffer.  Return value is what is returned from FUNCTION."
   (let ((temp-buffer "*I18n*"))
     (get-buffer-create temp-buffer)
     (switch-to-buffer temp-buffer)
@@ -185,7 +186,8 @@ Return value is what is returned from FUNCTION."
   )
 
 (defun rails-i18n-set-default-locale ()
-  "Interactively sets default locale from files found in config/locales."
+  "Interactively sets default locale from files found in
+config/locales."
   (interactive)
   (setq rails-i18n-default-locale
         (file-name-sans-extension
