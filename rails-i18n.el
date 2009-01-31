@@ -156,8 +156,7 @@ If set to nil, this variable must be set manually via `setq'.")
 goes to beginning of buffer, run given function and then kills
 buffer.  Return value is what is returned from FUNCTION."
   (let ((temp-buffer "*I18n*"))
-    (get-buffer-create temp-buffer)
-    (switch-to-buffer temp-buffer)
+    (switch-to-buffer (get-buffer-create temp-buffer))
     (delete-region (point-min) (point-max))
     (insert-file-contents-literally file)
     (beginning-of-buffer)
