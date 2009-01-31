@@ -159,7 +159,7 @@ buffer.  Return value is what is returned from FUNCTION."
     (switch-to-buffer (get-buffer-create temp-buffer))
     (delete-region (point-min) (point-max))
     (insert-file-contents-literally file)
-    (beginning-of-buffer)
+    (goto-char (point-min))
     (let ((result (funcall function)))
       (kill-this-buffer)
       result)))
