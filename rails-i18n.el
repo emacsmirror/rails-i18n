@@ -123,7 +123,35 @@ more details."
                       (rails-i18n-yaml-tag-position tags)
                     (rails-i18n-ruby-tag-position tags))))))))))
 
-  )
+(defun rails-i18n-ruby-goto-tag (indent &optional tag)
+  "Will go to first TAG with INDENT * `rails-i18n-indent-size'
+number of spaces before. If TAG is nil, any tag is matched."
+  (re-search-forward (concat "^ \\{" (number-to-string (* rails-i18n-indent-size indent)) "\\}" (or tag "[a-z]+") ":.*$" ) nil t))
+
+(defun rails-i18n-yaml-tag-position (tags)
+  "If TAGS is found, the position before the first letter in the
+last tag is returned. If not found, the position after the last
+letter of the last tag that was found is returned. This position
+is negative to indicate that there was no exact match. The
+position returned (negated) is of use since it's the closest
+possible position to TAGS."
+  (let ((count 1))
+    (while (and tags (rails-i18n-ruby-goto-tag (* count) (car tags)))
+      (cond ((> (length tags) 1)
+             (forward-char)
+             (set-mark (point))
+             (cond ((rails-i18n-ruby-goto-tag count)
+                    (previous-line)
+                    (goto-char (line-end-position)))
+                   (t
+                    (goto-char (point-max))))
+             (narrow-to-region (point) (mark))
+             (goto-char (point-min)))
+            (t
+             (goto-char (line-beginning-position))))
+      (setq tags (cdr tags))
+      (setq count (1+ count))))
+  (if tags (- (1- (point))) (back-to-indentation) (point)))
 
 (defun rails-i18n-narrow-to-tag-area ()
 
