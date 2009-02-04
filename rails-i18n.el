@@ -191,7 +191,7 @@ config/locales."
   (setq rails-i18n-default-locale
         (file-name-sans-extension
          (file-name-nondirectory
-          (read-file-name "Locale: " (concat (rails-i18n-project-root) "config/locales"))))))
+          (read-file-name "Locale: " (concat (rails-i18n-project-root) "config/locales/"))))))
 
 (define-minor-mode rails-i18n-mode
   "Handle Rails i18n tags."
