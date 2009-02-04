@@ -207,6 +207,8 @@ config/locales."
               (lambda ()
                 (if (re-search-forward "^ *config\\.i18n\\.default_locale *= *[\"':]\\{1\\}\\([A-Za-z_-]\\{2,\\}\\)['\"]? *$" nil t)
                     (setq rails-i18n-default-locale (match-string-no-properties 1))))))
+         (unless rails-i18n-default-locale
+           (error "Locale file incorrect"))
          (setq rails-i18n-indent-size (rails-i18n-locale-indent-size)))))
 
 
