@@ -121,11 +121,13 @@ If set to nil, this variable must be set manually via `setq'.")
           (if (rails-i18n-locale-yaml-p) ".yml" ".rb")))
 
 (defun rails-i18n-locale-yaml-p ()
-  "Returns true if default locale file is a yaml file. False otherwise."
+  "Returns true if default locale file is a yaml file. False
+otherwise."
   (rails-i18n-locale-p ".yml"))
 
 (defun rails-i18n-locale-ruby-p ()
-  "Returns true if default locale file is a ruby file. False otherwise."
+  "Returns true if default locale file is a ruby file. False
+otherwise."
   (rails-i18n-locale-p ".rb"))
 
 (defun rails-i18n-locale-p (extension)
