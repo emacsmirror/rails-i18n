@@ -107,7 +107,21 @@ If set to nil, this variable must be set manually via `setq'.")
     (unless (equal dir "/")
       (rails-i18n-project-root (expand-file-name (concat dir "../"))))))
 
-(defun rails-i18n-find-tag ()
+(defun rails-i18n-tag-position (tag)
+  "Returns tag point in locale file. See comments for
+`rails-i18n-yaml-tag-position' and `rails-i18n-ruby-tag-position' for
+more details."
+  (save-excursion
+    (save-restriction
+      (rails-i18n-temp-buffer-do
+       (rails-i18n-locale-file)
+       (lambda ()
+         (cond ((re-search-forward rails-i18n-default-locale nil t)
+                (goto-char (line-beginning-position 2))
+                (let ((tags (split-string tag "\\.")))
+                  (if (rails-i18n-locale-yaml-p)
+                      (rails-i18n-yaml-tag-position tags)
+                    (rails-i18n-ruby-tag-position tags))))))))))
 
   )
 
