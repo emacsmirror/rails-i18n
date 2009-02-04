@@ -153,7 +153,8 @@ possible position to TAGS."
       (setq count (1+ count))))
   (if tags (- (1- (point))) (back-to-indentation) (point)))
 
-(defun rails-i18n-narrow-to-tag-area ()
+(defun rails-i18n-ruby-tag-position (tags)
+  ""
 
   )
 
